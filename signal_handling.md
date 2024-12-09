@@ -311,6 +311,22 @@ Signals can be generated in several ways:
     int raise(int sig);
     ```
     
+    The raise() function is typically implemented in the C standard library (e.g., glibc for Linux). It works by internally calling the system call interface for sending signals, such as kill() or tgkill().
+
+Here is a simplified example of how `raise()` might be implemented:
+
+c
+
+Copy code
+
+`#include <signal.h>
+#include <unistd.h>
+#include <sys/types.h>
+
+int raise(int sig) {
+    return kill(getpid(), sig);  // Sends the signal to the calling process
+}`
+
     </details>
     
     -   `sigqueue()`: Sends a signal along with additional data (real-time signals).
@@ -608,8 +624,8 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTc1OTQyNzgsLTExMTg0MTQyMDQsOD
-gwMTMzODY2LC0zMDUxNzA2NDcsMTYzMTM4MzQ1NiwtMTg1NjEz
-Mjk5NiwxMTUzMjUxMzM4LC0xMzM4MDAwMDQ1LC0yMjY5MDMxMT
-EsOTkyNDQ1OTg5LC0zMzI0NTUzNjNdfQ==
+eyJoaXN0b3J5IjpbODU5NjgzNDY4LC0xMTE4NDE0MjA0LDg4MD
+EzMzg2NiwtMzA1MTcwNjQ3LDE2MzEzODM0NTYsLTE4NTYxMzI5
+OTYsMTE1MzI1MTMzOCwtMTMzODAwMDA0NSwtMjI2OTAzMTExLD
+k5MjQ0NTk4OSwtMzMyNDU1MzYzXX0=
 -->
