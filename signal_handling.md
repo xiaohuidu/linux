@@ -4,6 +4,8 @@ In the Linux kernel, signals are a mechanism used to communicate asynchronously 
 ----------
 ### **1. Signal Generation**
 
+In the context of Linux signals, **real-time signals** and **non-real-time signals** refer to two categories of signals with different behavior and use cases. Both types are mechanisms for asynchronous communication between processes or between a process and the kernel.
+
 ### **2. Signal Generation**
 
 Signals can be generated in several ways:
@@ -633,9 +635,9 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzIwMzA2OTUsLTE2MTI4NzEwMzEsOT
-A3Nzg5OTY2LC0xMTE4NDE0MjA0LDg4MDEzMzg2NiwtMzA1MTcw
-NjQ3LDE2MzEzODM0NTYsLTE4NTYxMzI5OTYsMTE1MzI1MTMzOC
-wtMTMzODAwMDA0NSwtMjI2OTAzMTExLDk5MjQ0NTk4OSwtMzMy
-NDU1MzYzXX0=
+eyJoaXN0b3J5IjpbLTE0MzU2NDMyLC0xNjEyODcxMDMxLDkwNz
+c4OTk2NiwtMTExODQxNDIwNCw4ODAxMzM4NjYsLTMwNTE3MDY0
+NywxNjMxMzgzNDU2LC0xODU2MTMyOTk2LDExNTMyNTEzMzgsLT
+EzMzgwMDAwNDUsLTIyNjkwMzExMSw5OTI0NDU5ODksLTMzMjQ1
+NTM2M119
 -->
