@@ -6,6 +6,107 @@ In the Linux kernel, signals are a mechanism used to communicate asynchronously 
 
 In the context of Linux signals, **real-time signals** and **non-real-time signals** refer to two categories of signals with different behavior and use cases. Both types are mechanisms for asynchronous communication between processes or between a process and the kernel.
 
+### **1. Non-Real-Time Signals**
+
+These are the traditional signals defined by the POSIX standard. Examples include `SIGTERM`, `SIGKILL`, `SIGINT`, `SIGSEGV`, etc.
+
+#### **Characteristics**:
+
+1.  **Limited Set of Signals**:
+    
+    -   There are 31 standard signals (`1` to `31` in most systems).
+    -   These are defined as constants in `<signal.h>`.
+2.  **Fixed Behavior**:
+    
+    -   Each signal has a specific, predefined purpose (e.g., `SIGKILL` to terminate a process, `SIGINT` for user interruption).
+3.  **Non-Queued**:
+    
+    -   Only one instance of a signal can be pending at any time.
+    -   If the same signal is sent multiple times before the process handles it, the process will receive it only once.
+4.  **Delivery Order**:
+    
+    -   The delivery order is not guaranteed if multiple signals are sent to a process.
+5.  **No Data**:
+    
+    -   Signals do not carry additional data; only the signal number is delivered.
+
+#### **Examples**:
+
+-   **`SIGTERM`**: Request to terminate the process (can be caught or ignored).
+-   **`SIGKILL`**: Forcefully kill the process (cannot be caught or ignored).
+-   **`SIGSEGV`**: Sent when a segmentation fault occurs.
+
+----------
+
+### **2. Real-Time Signals**
+
+Real-time signals are an extension of the standard signal mechanism introduced by the POSIX real-time extensions. They provide enhanced functionality compared to non-real-time signals.
+
+#### **Characteristics**:
+
+1.  **Extended Range**:
+    
+    -   Signal numbers for real-time signals are typically from `SIGRTMIN` to `SIGRTMAX`.
+    -   The actual range depends on the system but is usually around 32 real-time signals.
+2.  **Queuing Support**:
+    
+    -   Real-time signals can queue multiple instances.
+    -   Each signal in the queue is delivered exactly once, even if the same signal is sent multiple times.
+3.  **Delivery Order**:
+    
+    -   Signals are delivered in the order they were sent, ensuring predictable behavior.
+4.  **Data Payload**:
+    
+    -   Real-time signals can carry additional user-defined data (`sigval`).
+    -   This is possible with functions like `sigqueue()`.
+5.  **Higher Priority**:
+    
+    -   Real-time signals have higher priority than non-real-time signals.
+
+#### **Examples**:
+
+-   Real-time signals are often used in advanced inter-process communication (IPC) scenarios.
+
+----------
+
+### **Key Differences Between Real-Time and Non-Real-Time Signals**
+
+**Feature**
+
+**Non-Real-Time Signals**
+
+**Real-Time Signals**
+
+**Signal Range**
+
+Limited (e.g., `1` to `31`)
+
+Typically `SIGRTMIN` to `SIGRTMAX`
+
+**Queuing**
+
+Not supported (one instance only)
+
+Supported (multiple instances queued)
+
+**Delivery Order**
+
+Not guaranteed
+
+Guaranteed (FIFO)
+
+**Payload**
+
+No additional data
+
+Can carry user-defined data
+
+**Use Cases**
+
+Basic signaling, process control
+
+Advanced IPC, real-time systems
+
 ### **2. Signal Generation**
 
 Signals can be generated in several ways:
@@ -635,9 +736,9 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzU2NDMyLC0xNjEyODcxMDMxLDkwNz
-c4OTk2NiwtMTExODQxNDIwNCw4ODAxMzM4NjYsLTMwNTE3MDY0
-NywxNjMxMzgzNDU2LC0xODU2MTMyOTk2LDExNTMyNTEzMzgsLT
-EzMzgwMDAwNDUsLTIyNjkwMzExMSw5OTI0NDU5ODksLTMzMjQ1
-NTM2M119
+eyJoaXN0b3J5IjpbLTIwNDY3NTA1ODAsLTE2MTI4NzEwMzEsOT
+A3Nzg5OTY2LC0xMTE4NDE0MjA0LDg4MDEzMzg2NiwtMzA1MTcw
+NjQ3LDE2MzEzODM0NTYsLTE4NTYxMzI5OTYsMTE1MzI1MTMzOC
+wtMTMzODAwMDA0NSwtMjI2OTAzMTExLDk5MjQ0NTk4OSwtMzMy
+NDU1MzYzXX0=
 -->
