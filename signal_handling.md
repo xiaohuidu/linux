@@ -424,17 +424,17 @@ Signals can be generated in several ways:
     }
 
     int main() {
-    // Set up the signal handler for SIGALRM
-    signal(SIGALRM, alarm_handler);
+        // Set up the signal handler for SIGALRM
+        signal(SIGALRM, alarm_handler);
 
-    printf("Setting alarm for 5 seconds...\n");
-    alarm(5);  // Schedule SIGALRM in 5 seconds
+        printf("Setting alarm for 5 seconds...\n");
+        alarm(5);  // Schedule SIGALRM in 5 seconds
 
-    pause();  // Wait for signal
+        pause();  // Wait for signal
 
-    printf("Program exiting.\n");
-    return 0;
-  }
+        printf("Program exiting.\n");
+        return 0;
+    }
 
     ```
     
@@ -733,11 +733,11 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5NDIzMjc2MSw3ODE4ODUzMTksLTY4MT
-c5NjIzLC03NTc3NTY2NjAsLTExMDAzNTE3NzIsLTE5MDQ5Mjkw
-NTksLTYyNzkxMzQxNSwtMjExNjk3Mjk5NCwtMTYxMjg3MTAzMS
-w5MDc3ODk5NjYsLTExMTg0MTQyMDQsODgwMTMzODY2LC0zMDUx
-NzA2NDcsMTYzMTM4MzQ1NiwtMTg1NjEzMjk5NiwxMTUzMjUxMz
-M4LC0xMzM4MDAwMDQ1LC0yMjY5MDMxMTEsOTkyNDQ1OTg5LC0z
-MzI0NTUzNjNdfQ==
+eyJoaXN0b3J5IjpbNDI1MTAyMTM3LDc4MTg4NTMxOSwtNjgxNz
+k2MjMsLTc1Nzc1NjY2MCwtMTEwMDM1MTc3MiwtMTkwNDkyOTA1
+OSwtNjI3OTEzNDE1LC0yMTE2OTcyOTk0LC0xNjEyODcxMDMxLD
+kwNzc4OTk2NiwtMTExODQxNDIwNCw4ODAxMzM4NjYsLTMwNTE3
+MDY0NywxNjMxMzgzNDU2LC0xODU2MTMyOTk2LDExNTMyNTEzMz
+gsLTEzMzgwMDAwNDUsLTIyNjkwMzExMSw5OTI0NDU5ODksLTMz
+MjQ1NTM2M119
 -->
