@@ -11,7 +11,7 @@ Signals can be generated in several ways:
     
     -   `kill()`: Sends a signal to a specific process or process group.
     
-    <details open>
+    <details>
     struct 
     {                                
         int si_signo;                   
@@ -375,6 +375,6 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MzY1NzYwMDksLTEzMzgwMDAwNDUsLT
+eyJoaXN0b3J5IjpbLTE5MDE4MzExODUsLTEzMzgwMDAwNDUsLT
 IyNjkwMzExMSw5OTI0NDU5ODksLTMzMjQ1NTM2M119
 -->
