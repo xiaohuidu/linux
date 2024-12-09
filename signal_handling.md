@@ -148,6 +148,43 @@ Signals can be generated in several ways:
         return ret;
     }
 
+    int send_signal_locked(int sig, struct kernel_siginfo *info,
+                       struct task_struct *t, enum pid_type type)
+    {
+        /* Should SIGKILL or SIGSTOP be received by a pid namespace init? */
+        bool force = false;
+
+        if (info == SEND_SIG_NOINFO) {
+                /* Force if sent from an ancestor pid namespace */
+                force = !task_pid_nr_ns(current, task_active_pid_ns(t));
+        } else if (info == SEND_SIG_PRIV) {
+                /* Don't ignore kernel generated signals */
+                force = true;
+        } else if (has_si_pid_and_uid(info)) {
+                /* SIGKILL and SIGSTOP is special or has ids */
+                struct user_namespace *t_user_ns;
+
+                rcu_read_lock();
+                t_user_ns = task_cred_xxx(t, user_ns);
+                if (current_user_ns() != t_user_ns) {
+                        kuid_t uid = make_kuid(current_user_ns(), info->si_uid);
+                        info->si_uid = from_kuid_munged(t_user_ns, uid);
+                }
+                rcu_read_unlock();
+
+                /* A kernel generated signal? */
+                force = (info->si_code == SI_KERNEL);
+
+                /* From an ancestor pid namespace? */
+                if (!task_pid_nr_ns(current, task_active_pid_ns(t))) {
+                        info->si_pid = 0;
+                        force = true;
+                }
+        }
+        return __send_signal_locked(sig, info, t, type, force);
+    }
+
+
     ```
     </details>
     
@@ -447,8 +484,8 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyNDIzNjMzNSwtMzA1MTcwNjQ3LDE2Mz
-EzODM0NTYsLTE4NTYxMzI5OTYsMTE1MzI1MTMzOCwtMTMzODAw
-MDA0NSwtMjI2OTAzMTExLDk5MjQ0NTk4OSwtMzMyNDU1MzYzXX
-0=
+eyJoaXN0b3J5IjpbODgwMTMzODY2LC0zMDUxNzA2NDcsMTYzMT
+M4MzQ1NiwtMTg1NjEzMjk5NiwxMTUzMjUxMzM4LC0xMzM4MDAw
+MDQ1LC0yMjY5MDMxMTEsOTkyNDQ1OTg5LC0zMzI0NTUzNjNdfQ
+==
 -->
