@@ -409,10 +409,10 @@ Signals can be generated in several ways:
     #include <unistd.h>
     unsigned int alarm(unsigned int seconds);
     ```
-Key Characteristics:
--   Simple and limited to second-level granularity.
--   Only one alarm can be active at a time.
--   The alarm cannot repeat automatically (for periodic timers).
+    Key Characteristics:
+    -   Simple and limited to second-level granularity.
+    -   Only one alarm can be active at a time.
+    -   The alarm cannot repeat automatically (for periodic timers).
    
    </details>
     
@@ -709,7 +709,7 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5NzI2MTAyMiwtNzU3NzU2NjYwLC0xMT
+eyJoaXN0b3J5IjpbMjEwMTQ4ODQ3OCwtNzU3NzU2NjYwLC0xMT
 AwMzUxNzcyLC0xOTA0OTI5MDU5LC02Mjc5MTM0MTUsLTIxMTY5
 NzI5OTQsLTE2MTI4NzEwMzEsOTA3Nzg5OTY2LC0xMTE4NDE0Mj
 A0LDg4MDEzMzg2NiwtMzA1MTcwNjQ3LDE2MzEzODM0NTYsLTE4
