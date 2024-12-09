@@ -276,7 +276,6 @@ Signals can be generated in several ways:
                  */
                 result = TRACE_SIGNAL_LOSE_INFO;
         }
-
 out_set:
         signalfd_notify(t, sig);
         sigaddset(&pending->signal, sig);
@@ -602,8 +601,8 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjA0NDkzMzA4LDg4MDEzMzg2NiwtMzA1MT
-cwNjQ3LDE2MzEzODM0NTYsLTE4NTYxMzI5OTYsMTE1MzI1MTMz
-OCwtMTMzODAwMDA0NSwtMjI2OTAzMTExLDk5MjQ0NTk4OSwtMz
-MyNDU1MzYzXX0=
+eyJoaXN0b3J5IjpbMTY3MjgwNjA5NCw4ODAxMzM4NjYsLTMwNT
+E3MDY0NywxNjMxMzgzNDU2LC0xODU2MTMyOTk2LDExNTMyNTEz
+MzgsLTEzMzgwMDAwNDUsLTIyNjkwMzExMSw5OTI0NDU5ODksLT
+MzMjQ1NTM2M119
 -->
