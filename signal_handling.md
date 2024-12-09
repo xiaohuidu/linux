@@ -33,33 +33,27 @@ These are the traditional signals defined by the POSIX standard. Examples includ
 
 ----------
 
-### **2. Real-Time Signals**
+**2. Real-Time Signals**
 
 Real-time signals are an extension of the standard signal mechanism introduced by the POSIX real-time extensions. They provide enhanced functionality compared to non-real-time signals.
 
 #### **Characteristics**:
 
-1.  **Extended Range**:
-    
+1.  **Extended Range**:    
     -   Signal numbers for real-time signals are typically from `SIGRTMIN` to `SIGRTMAX`.
     -   The actual range depends on the system but is usually around 32 real-time signals.
-2.  **Queuing Support**:
-    
+2.  **Queuing Support**:    
     -   Real-time signals can queue multiple instances.
     -   Each signal in the queue is delivered exactly once, even if the same signal is sent multiple times.
-3.  **Delivery Order**:
-    
+3.  **Delivery Order**:    
     -   Signals are delivered in the order they were sent, ensuring predictable behavior.
-4.  **Data Payload**:
-    
+4.  **Data Payload**:    
     -   Real-time signals can carry additional user-defined data (`sigval`).
     -   This is possible with functions like `sigqueue()`.
-5.  **Higher Priority**:
-    
+5.  **Higher Priority**:    
     -   Real-time signals have higher priority than non-real-time signals.
 
 #### **Examples**:
-
 -   Real-time signals are often used in advanced inter-process communication (IPC) scenarios.
 
 ----------
@@ -731,9 +725,9 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyNjA0MjE3MywtMTYxMjg3MTAzMSw5MD
-c3ODk5NjYsLTExMTg0MTQyMDQsODgwMTMzODY2LC0zMDUxNzA2
-NDcsMTYzMTM4MzQ1NiwtMTg1NjEzMjk5NiwxMTUzMjUxMzM4LC
-0xMzM4MDAwMDQ1LC0yMjY5MDMxMTEsOTkyNDQ1OTg5LC0zMzI0
-NTUzNjNdfQ==
+eyJoaXN0b3J5IjpbLTIxMTY5NzI5OTQsLTE2MTI4NzEwMzEsOT
+A3Nzg5OTY2LC0xMTE4NDE0MjA0LDg4MDEzMzg2NiwtMzA1MTcw
+NjQ3LDE2MzEzODM0NTYsLTE4NTYxMzI5OTYsMTE1MzI1MTMzOC
+wtMTMzODAwMDA0NSwtMjI2OTAzMTExLDk5MjQ0NTk4OSwtMzMy
+NDU1MzYzXX0=
 -->
