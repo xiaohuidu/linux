@@ -53,48 +53,11 @@ Real-time signals are an extension of the standard signal mechanism introduced b
 5.  **Higher Priority**:    
     -   Real-time signals have higher priority than non-real-time signals.
 
-#### **Examples**:
+**Examples**:
 -   Real-time signals are often used in advanced inter-process communication (IPC) scenarios.
 
-----------
+The range of real-time signals (`SIGRTMIN` to `SIGRTMAX`) can vary between systems and is defined in `<signal.h>`. You can inspect the values on a Linux system with:
 
-### **Key Differences Between Real-Time and Non-Real-Time Signals**
-
-**Feature**
-
-**Non-Real-Time Signals**
-
-**Real-Time Signals**
-
-**Signal Range**
-
-Limited (e.g., `1` to `31`)
-
-Typically `SIGRTMIN` to `SIGRTMAX`
-
-**Queuing**
-
-Not supported (one instance only)
-
-Supported (multiple instances queued)
-
-**Delivery Order**
-
-Not guaranteed
-
-Guaranteed (FIFO)
-
-**Payload**
-
-No additional data
-
-Can carry user-defined data
-
-**Use Cases**
-
-Basic signaling, process control
-
-Advanced IPC, real-time systems
 
 ### **2. Signal Generation**
 
@@ -725,9 +688,9 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTY5NzI5OTQsLTE2MTI4NzEwMzEsOT
-A3Nzg5OTY2LC0xMTE4NDE0MjA0LDg4MDEzMzg2NiwtMzA1MTcw
-NjQ3LDE2MzEzODM0NTYsLTE4NTYxMzI5OTYsMTE1MzI1MTMzOC
-wtMTMzODAwMDA0NSwtMjI2OTAzMTExLDk5MjQ0NTk4OSwtMzMy
-NDU1MzYzXX0=
+eyJoaXN0b3J5IjpbLTQ0NzA4NTc3MSwtMjExNjk3Mjk5NCwtMT
+YxMjg3MTAzMSw5MDc3ODk5NjYsLTExMTg0MTQyMDQsODgwMTMz
+ODY2LC0zMDUxNzA2NDcsMTYzMTM4MzQ1NiwtMTg1NjEzMjk5Ni
+wxMTUzMjUxMzM4LC0xMzM4MDAwMDQ1LC0yMjY5MDMxMTEsOTky
+NDQ1OTg5LC0zMzI0NTUzNjNdfQ==
 -->
