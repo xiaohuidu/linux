@@ -324,6 +324,8 @@ Signals can be generated in several ways:
     }
     ```
 
+    The `sigqueue()` function is a POSIX-compliant system call that allows a process to send a signal to another process, along with an accompanying user-defined value. Unlike simpler signal-sending functions like `kill()`, `sigqueue()` provides additional functionality by allowing a signal to carry an extra data payload.
+
     </details>
     
     -   `sigqueue()`: Sends a signal along with additional data (real-time signals).
@@ -621,8 +623,8 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTA3Nzg5OTY2LC0xMTE4NDE0MjA0LDg4MD
-EzMzg2NiwtMzA1MTcwNjQ3LDE2MzEzODM0NTYsLTE4NTYxMzI5
-OTYsMTE1MzI1MTMzOCwtMTMzODAwMDA0NSwtMjI2OTAzMTExLD
-k5MjQ0NTk4OSwtMzMyNDU1MzYzXX0=
+eyJoaXN0b3J5IjpbODQ5NzMxNjY1LDkwNzc4OTk2NiwtMTExOD
+QxNDIwNCw4ODAxMzM4NjYsLTMwNTE3MDY0NywxNjMxMzgzNDU2
+LC0xODU2MTMyOTk2LDExNTMyNTEzMzgsLTEzMzgwMDAwNDUsLT
+IyNjkwMzExMSw5OTI0NDU5ODksLTMzMjQ1NTM2M119
 -->
