@@ -12,8 +12,7 @@ These are the traditional signals defined by the POSIX standard. Examples includ
 
 #### **Characteristics**:
 
-1.  **Limited Set of Signals**:
-    
+1.  **Limited Set of Signals**:    
     -   There are 31 standard signals (`1` to `31` in most systems).
     -   These are defined as constants in `<signal.h>`.
 2.  **Fixed Behavior**:
@@ -736,9 +735,9 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5OTMwODIxMzUsLTE2MTI4NzEwMzEsOT
-A3Nzg5OTY2LC0xMTE4NDE0MjA0LDg4MDEzMzg2NiwtMzA1MTcw
-NjQ3LDE2MzEzODM0NTYsLTE4NTYxMzI5OTYsMTE1MzI1MTMzOC
-wtMTMzODAwMDA0NSwtMjI2OTAzMTExLDk5MjQ0NTk4OSwtMzMy
-NDU1MzYzXX0=
+eyJoaXN0b3J5IjpbLTg3ODc1ODYzMywtMTYxMjg3MTAzMSw5MD
+c3ODk5NjYsLTExMTg0MTQyMDQsODgwMTMzODY2LC0zMDUxNzA2
+NDcsMTYzMTM4MzQ1NiwtMTg1NjEzMjk5NiwxMTUzMjUxMzM4LC
+0xMzM4MDAwMDQ1LC0yMjY5MDMxMTEsOTkyNDQ1OTg5LC0zMzI0
+NTUzNjNdfQ==
 -->
