@@ -415,7 +415,7 @@ Signals can be generated in several ways:
     -   The alarm cannot repeat automatically (for periodic timers).
     Example:
     
-	    ```c
+    ```c
     #include <stdio.h>    
     #include <unistd.h>   
     #include <signal.h>
@@ -729,11 +729,11 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTA5NzIzNjEzLDc4MTg4NTMxOSwtNjgxNz
-k2MjMsLTc1Nzc1NjY2MCwtMTEwMDM1MTc3MiwtMTkwNDkyOTA1
-OSwtNjI3OTEzNDE1LC0yMTE2OTcyOTk0LC0xNjEyODcxMDMxLD
-kwNzc4OTk2NiwtMTExODQxNDIwNCw4ODAxMzM4NjYsLTMwNTE3
-MDY0NywxNjMxMzgzNDU2LC0xODU2MTMyOTk2LDExNTMyNTEzMz
-gsLTEzMzgwMDAwNDUsLTIyNjkwMzExMSw5OTI0NDU5ODksLTMz
-MjQ1NTM2M119
+eyJoaXN0b3J5IjpbLTExMzAzMDQ0NDMsNzgxODg1MzE5LC02OD
+E3OTYyMywtNzU3NzU2NjYwLC0xMTAwMzUxNzcyLC0xOTA0OTI5
+MDU5LC02Mjc5MTM0MTUsLTIxMTY5NzI5OTQsLTE2MTI4NzEwMz
+EsOTA3Nzg5OTY2LC0xMTE4NDE0MjA0LDg4MDEzMzg2NiwtMzA1
+MTcwNjQ3LDE2MzEzODM0NTYsLTE4NTYxMzI5OTYsMTE1MzI1MT
+MzOCwtMTMzODAwMDA0NSwtMjI2OTAzMTExLDk5MjQ0NTk4OSwt
+MzMyNDU1MzYzXX0=
 -->
