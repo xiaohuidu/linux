@@ -45,12 +45,14 @@ Signals can be generated in several ways:
         info->si_pid = task_tgid_vnr(current);
         info->si_uid = from_kuid_munged(current_user_ns(), 	current_uid());
     }
+
+	// Send signal to a process.
     static int kill_something_info(int sig, struct kernel_siginfo *info, pid_t pid)
     {
         int ret;
 
         if (pid > 0)
-		        // If PID is specified > 0
+		        // If PID is specified > 0, call kill_proc_info
                 return kill_proc_info(sig, info, pid);
 
         /* -INT_MIN is undefined.  Exclude this case to avoid a UBSAN warning */
@@ -431,7 +433,7 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYzMTM4MzQ1NiwtMTg1NjEzMjk5NiwxMT
-UzMjUxMzM4LC0xMzM4MDAwMDQ1LC0yMjY5MDMxMTEsOTkyNDQ1
-OTg5LC0zMzI0NTUzNjNdfQ==
+eyJoaXN0b3J5IjpbLTMwNTE3MDY0NywxNjMxMzgzNDU2LC0xOD
+U2MTMyOTk2LDExNTMyNTEzMzgsLTEzMzgwMDAwNDUsLTIyNjkw
+MzExMSw5OTI0NDU5ODksLTMzMjQ1NTM2M119
 -->
