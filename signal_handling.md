@@ -57,6 +57,8 @@ Real-time signals are an extension of the standard signal mechanism introduced b
 -   Real-time signals are often used in advanced inter-process communication (IPC) scenarios.
 
 The range of real-time signals (`SIGRTMIN` to `SIGRTMAX`) can vary between systems and is defined in `<signal.h>`. You can inspect the values on a Linux system with:
+```
+```
 
 
 ### **2. Signal Generation**
@@ -688,9 +690,9 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0NzA4NTc3MSwtMjExNjk3Mjk5NCwtMT
-YxMjg3MTAzMSw5MDc3ODk5NjYsLTExMTg0MTQyMDQsODgwMTMz
-ODY2LC0zMDUxNzA2NDcsMTYzMTM4MzQ1NiwtMTg1NjEzMjk5Ni
-wxMTUzMjUxMzM4LC0xMzM4MDAwMDQ1LC0yMjY5MDMxMTEsOTky
-NDQ1OTg5LC0zMzI0NTUzNjNdfQ==
+eyJoaXN0b3J5IjpbNzExNzUyODg1LC0yMTE2OTcyOTk0LC0xNj
+EyODcxMDMxLDkwNzc4OTk2NiwtMTExODQxNDIwNCw4ODAxMzM4
+NjYsLTMwNTE3MDY0NywxNjMxMzgzNDU2LC0xODU2MTMyOTk2LD
+ExNTMyNTEzMzgsLTEzMzgwMDAwNDUsLTIyNjkwMzExMSw5OTI0
+NDU5ODksLTMzMjQ1NTM2M119
 -->
