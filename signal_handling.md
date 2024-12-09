@@ -303,7 +303,7 @@ Signals can be generated in several ways:
     </details>
     
     -   `raise()`: A process sends a signal to itself.
-    -
+    
     <details>
     The raise() function is a standard C library function used to send a signal to the calling process. It is part of the POSIX standard and is defined in the <signal.h> header. Here’s a detailed explanation of where raise() is defined and how it works:
     </details>
@@ -603,8 +603,8 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MzM0MzA0ODEsLTExMTg0MTQyMDQsOD
-gwMTMzODY2LC0zMDUxNzA2NDcsMTYzMTM4MzQ1NiwtMTg1NjEz
-Mjk5NiwxMTUzMjUxMzM4LC0xMzM4MDAwMDQ1LC0yMjY5MDMxMT
-EsOTkyNDQ1OTg5LC0zMzI0NTUzNjNdfQ==
+eyJoaXN0b3J5IjpbMTM5MTQ2NDMyNiwtMTExODQxNDIwNCw4OD
+AxMzM4NjYsLTMwNTE3MDY0NywxNjMxMzgzNDU2LC0xODU2MTMy
+OTk2LDExNTMyNTEzMzgsLTEzMzgwMDAwNDUsLTIyNjkwMzExMS
+w5OTI0NDU5ODksLTMzMjQ1NTM2M119
 -->
