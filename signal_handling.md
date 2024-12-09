@@ -102,7 +102,7 @@ Signals can be generated in several ways:
 
         for (;;) {
                 rcu_read_lock();
-                p = pid_task(pid, PIDTYPE_PID);
+                p = pid_task(pid, PIDTYPE_PID); //Get the process data (struct task_struct)
                 if (p)
                         error = group_send_sig_info(sig, info, p, type);
                 rcu_read_unlock();
@@ -116,6 +116,7 @@ Signals can be generated in several ways:
         }
     }
 
+	// Send a signal to a process.
     int group_send_sig_info(int sig, struct kernel_siginfo *info,
                         struct task_struct *p, enum pid_type type)
     {
@@ -430,7 +431,7 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU1NDc1MTQ4NSwtMTg1NjEzMjk5NiwxMT
+eyJoaXN0b3J5IjpbMTYzMTM4MzQ1NiwtMTg1NjEzMjk5NiwxMT
 UzMjUxMzM4LC0xMzM4MDAwMDQ1LC0yMjY5MDMxMTEsOTkyNDQ1
 OTg5LC0zMzI0NTUzNjNdfQ==
 -->
