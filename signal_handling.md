@@ -41,6 +41,41 @@ Signals can be generated in several ways:
         info->si_pid = task_tgid_vnr(current);
         info->si_uid = from_kuid_munged(current_user_ns(), 	current_uid());
     }
+    static int kill_something_info(int sig, struct kernel_siginfo *info, pid_t pid)
+  
+        int ret;
+
+        if (pid > 0)
+                return kill_proc_info(sig, info, pid);
+
+        /* -INT_MIN is undefined.  Exclude this case to avoid a UBSAN warning */
+        if (pid == INT_MIN)
+                return -ESRCH;
+
+        read_lock(&tasklist_lock);
+        if (pid != -1) {
+                ret = __kill_pgrp_info(sig, info,
+                                pid ? find_vpid(-pid) : task_pgrp(current));
+        } else {
+                int retval = 0, count = 0;
+                struct task_struct * p;
+
+                for_each_process(p) {
+                        if (task_pid_vnr(p) > 1 &&
+                                        !same_thread_group(p, current)) {
+                                int err = group_send_sig_info(sig, info, p,
+                                                              PIDTYPE_MAX);
+                                ++count;
+                                if (err != -EPERM)
+                                        retval = err;
+                        }
+                }
+                ret = count ? retval : -ESRCH;
+        }
+        read_unlock(&tasklist_lock);
+
+        return ret;
+}
 
     ```
     -   `raise()`: A process sends a signal to itself.
@@ -339,6 +374,6 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5OTY1MjgzODEsLTEzMzgwMDAwNDUsLT
-IyNjkwMzExMSw5OTI0NDU5ODksLTMzMjQ1NTM2M119
+eyJoaXN0b3J5IjpbMjg3NTI1MjE0LC0xMzM4MDAwMDQ1LC0yMj
+Y5MDMxMTEsOTkyNDQ1OTg5LC0zMzI0NTUzNjNdfQ==
 -->
