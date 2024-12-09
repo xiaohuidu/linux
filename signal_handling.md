@@ -50,7 +50,7 @@ Signals can be generated in several ways:
         int ret;
 
         if (pid > 0)
-		        
+		        // If PID is specified > 0
                 return kill_proc_info(sig, info, pid);
 
         /* -INT_MIN is undefined.  Exclude this case to avoid a UBSAN warning */
@@ -381,7 +381,7 @@ If this code is executed in a multithreaded process, `getpid()` will return the 
 
 A thread group is essentially a set of threads that share the same resources and are managed collectively by the Linux kernel. It provides a foundation for implementing POSIX-compliant multithreading and allows efficient sharing of resources like memory, file descriptors, and signal handlers. Thread groups simplify the management of multithreaded applications while enabling fine-grained control over individual threads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyNzQ3Nzk1NSwxMTUzMjUxMzM4LC0xMz
+eyJoaXN0b3J5IjpbLTk1MzU3NzcyNSwxMTUzMjUxMzM4LC0xMz
 M4MDAwMDQ1LC0yMjY5MDMxMTEsOTkyNDQ1OTg5LC0zMzI0NTUz
 NjNdfQ==
 -->
